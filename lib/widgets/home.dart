@@ -1,6 +1,7 @@
+import 'package:feed_json_flutter/widgets/load.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
-
+import '../widgets/liste.dart';
 /* BLOC : 1 */
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -27,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 // BLOC State<>
 class _MyHomePageState extends State<MyHomePage> {
+  var dataTraitement;
   @override
   void initState() {
     super.initState();
@@ -42,9 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: new Text(
           widget.title,
+          style : TextStyle(color : Colors.black),
         ),
       ),
       backgroundColor: Colors.black38,
+      body : ecoutonLoad(),
     );
   }
 
@@ -53,6 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
     var data = await new GetDataModel().chargerData();
     if (data != null) {
       print(data);
+      setState(() {
+        dataTraitement = data;   
+      });
     }
   }
 
@@ -63,6 +70,15 @@ class _MyHomePageState extends State<MyHomePage> {
       return Color(int.parse("0xFF" + color));
     } else if (color.length == 8) {
       return Color(int.parse("0x" + color));
+    }
+  }
+  // ---
+  Widget ecoutonLoad(){
+    if(dataTraitement != null){
+      return new Liste(dataTraitement);
+    }else{
+      return Chargement();
+
     }
   }
 }
