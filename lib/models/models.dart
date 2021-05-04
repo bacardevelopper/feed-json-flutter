@@ -5,6 +5,7 @@ import 'dart:convert';
 class GetDataModel {
   final String url = "https://jsonplaceholder.typicode.com/users";
 
+  // methode qui retourne data
   Future chargerData() async {
     final reponse = await http.get(Uri.parse(url));
     if(reponse.statusCode == 200){

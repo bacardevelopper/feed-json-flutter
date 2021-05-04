@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  /* fonction */
+  /* fonction (attente de modele) */
   Future dataAttente() async {
     var data = await new GetDataModel().chargerData();
     if (data != null) {
@@ -70,11 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
       return Color(int.parse("0xFF" + color));
     } else if (color.length == 8) {
       return Color(int.parse("0x" + color));
+    } else {
+      return Colors.black;
     }
   }
-  // ---
+  // --- : écouter dataTraitement
   Widget ecoutonLoad(){
     if(dataTraitement != null){
+      // class Liste (objet appeler)
       return new Liste(dataTraitement);
     }else{
       return Chargement();
