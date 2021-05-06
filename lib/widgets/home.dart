@@ -2,6 +2,7 @@ import 'package:feed_json_flutter/widgets/load.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 import '../widgets/liste.dart';
+
 /* BLOC : 1 */
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -44,11 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: new Text(
           widget.title,
-          style : TextStyle(color : Colors.black),
+          style: TextStyle(color: Colors.black),
         ),
       ),
-      backgroundColor: Colors.black38,
-      body : ecoutonLoad(),
+      backgroundColor: Colors.white,
+      body: ecoutonLoad(),
     );
   }
 
@@ -58,8 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
     if (data != null) {
       print(data);
       setState(() {
-        dataTraitement = data;   
+        dataTraitement = data;
       });
+      
     }
   }
 
@@ -74,14 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
       return Colors.black;
     }
   }
+
   // --- : écouter dataTraitement
-  Widget ecoutonLoad(){
-    if(dataTraitement != null){
+  Widget ecoutonLoad() {
+    if (dataTraitement != null) {
       // class Liste (objet appeler)
       return new Liste(dataTraitement);
-    }else{
+    } else {
       return Chargement();
-
     }
   }
+
+
 }
