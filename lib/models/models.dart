@@ -10,6 +10,7 @@ class GetDataModel {
     if(reponse.statusCode == 200){
       print(reponse.statusCode.toString());
       List data = jsonDecode(reponse.body);
+      print(data);
       return data;
     }else {
       print("erreur : "+reponse.statusCode.toString());

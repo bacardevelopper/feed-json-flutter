@@ -41,14 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: colorConvert("#AED6F1"),
+        backgroundColor: colorConvert("#FCF3CF"),
         centerTitle: true,
         title: new Text(
           widget.title,
           style: TextStyle(color: Colors.black),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: colorConvert("#FEF9E7"),
       body: ecoutonLoad(),
     );
   }
