@@ -93,21 +93,23 @@ class _Liste extends State<Liste> {
                               TextStyle(fontSize: 21.0, color: Colors.black45),
                         ),
                         TextButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                          ),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.green),
+                            ),
                             onPressed: () {
+                              print(widget.listeDeMap[i]["email"].toString());
                               Navigator.push(
                                 context,
                                 new MaterialPageRoute(
                                   builder: (BuildContext context) {
-
+                                    return PageDetails(widget.listeDeMap[i]);
                                   },
                                 ),
                               );
                             },
-                            child: texteDarwin("details",
-                                couleur: Colors.white)),
+                            child:
+                                texteDarwin("details", couleur: Colors.white)),
                       ],
                     ),
                   ),
