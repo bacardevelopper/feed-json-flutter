@@ -41,11 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: colorConvert("#FCF3CF"),
+        backgroundColor: Colors.purple /*colorConvert("#FCF3CF")*/,
         centerTitle: true,
         title: new Text(
           widget.title,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       backgroundColor: colorConvert("#FEF9E7"),
@@ -61,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         dataTraitement = data;
       });
-      
     }
   }
 

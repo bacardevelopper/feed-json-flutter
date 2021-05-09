@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/page_details.dart';
 
 // class appeler dans home
 // ignore: must_be_immutable
@@ -24,18 +25,52 @@ class _Liste extends State<Liste> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: listView(),
+    );
+  }
+
+  // methode Widget GridView
+  Widget gridView() {
+    return Container(
+        child: new GridView.builder(
+      // nombre d'element sur une ligne
+      gridDelegate:
+          new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemCount: widget.listeDeMap.length,
+      itemBuilder: (context, i) {
+        return new Container(
+          margin: EdgeInsets.all(7.5),
+          child: new Card(
+            elevation: 10.0,
+            child: new Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                new Text(widget.listeDeMap[i]["id"].toString()),
+              ],
+            ),
+          ),
+        );
+      },
+    ));
+  }
+
+  // methode Widget GridView
+  Widget listView() {
     return new ListView.builder(
       itemCount: widget.listeDeMap.length,
       itemBuilder: (context, i) {
         return new Container(
-          color : Colors.blueGrey,
+          color: Colors.blueGrey,
           margin: EdgeInsets.all(5.0),
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              new Image.network("https://img.icons8.com/ios-glyphs/30/000000/administrator-male.png", width : MediaQuery.of(context).size.width /4),
+              new Image.network(
+                  "https://img.icons8.com/ios-glyphs/30/000000/administrator-male.png",
+                  width: MediaQuery.of(context).size.width / 4),
               Container(
-                height: MediaQuery.of(context).size.height / 5.3,
+                height: MediaQuery.of(context).size.height / 3.8,
                 child: Card(
                   color: Colors.yellowAccent,
                   child: Padding(
@@ -57,6 +92,22 @@ class _Liste extends State<Liste> {
                           style:
                               TextStyle(fontSize: 21.0, color: Colors.black45),
                         ),
+                        TextButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                          ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                  builder: (BuildContext context) {
+
+                                  },
+                                ),
+                              );
+                            },
+                            child: texteDarwin("details",
+                                couleur: Colors.white)),
                       ],
                     ),
                   ),
@@ -80,6 +131,4 @@ class _Liste extends State<Liste> {
       },
     );
   }
-
-  // methode
 }
