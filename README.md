@@ -1,16 +1,21 @@
 # feed_json_flutter
+## Les fonctionnalités utilisés dedans
+1 Navgation vers une vue en détails d'une element
+2 Création d'une class model qui gere les requettes http (min) pour recuperer data
+3 Utilisation de StatelessWidget pour certains rendu vu
+4 Premier structure (MVP)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ce model va évoulé ce repertoire est la juste à but d'apprentissage.
+## (lib)
+```
+lib
+ -- models
+  -- date_converter.dart
+  -- models.dart
+ -- widgets
+  -- home.dart
+  -- liste.dart
+  -- load.dart
+  -- page_detatils.dart
+ -- main.dart
+```
